@@ -1,0 +1,32 @@
+pluginManagement {
+    repositories {
+        **ARTIFACTORYREPOSITORY**
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+        maven {
+                url "https://maven.google.com"
+        }
+        maven {url 'https://dl.google.com/dl/android/maven2/'}
+            mavenCentral()
+    }
+}
+
+include ':launcher', ':unityLibrary'
+**INCLUDES**
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
+    repositories {
+        **ARTIFACTORYREPOSITORY**
+        google()
+        maven {
+            url "https://maven.google.com"
+        }
+        maven {url 'https://dl.google.com/dl/android/maven2/'}
+        mavenCentral()
+        flatDir {
+            dirs "${project(':unityLibrary').projectDir}/libs"
+        }
+    }
+}
